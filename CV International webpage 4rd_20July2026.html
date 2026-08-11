@@ -1,0 +1,643 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C V International Pvt Ltd.</title>
+    <meta name="description" content="C V International Pvt Ltd.: Bridging Japanese expertise with the Indian market since 1982.">
+    <meta name="keywords" content="C V International Pvt Ltd, Nomura Trading India, Japan, Industrial Products India, Pharmaceutical Supply Chain India">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --brand-blue: #1a237e;
+            --india-orange: #f97316;
+            --japan-red: #dc2626;
+            --text-main: #2c3e50;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            cursor: pointer;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--brand-blue);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .check-mark {
+            color: #10b981;
+        }
+
+        .text-japan { color: var(--japan-red); }
+        .text-india { color: var(--india-orange); }
+        .text-brand { color: var(--brand-blue); }
+        .bg-brand { background-color: var(--brand-blue); }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-4">
+                    <span class="text-xl md:text-2xl font-bold tracking-tighter text-blue-900 uppercase">C V International Pvt Ltd.</span>
+                    <div class="h-8 w-[1px] bg-gray-300 hidden md:block"></div>
+                    <!-- Nomura Logo -->
+                    <div class="flex items-center">
+                        <img src="https://www.nomuratrading.co.jp/english/img/common/logo.png" alt="Nomura Trading Logo" class="h-8 md:h-10 object-contain" onerror="this.src='https://via.placeholder.com/200x50?text=NOMURA+TRADING'">
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 font-medium text-sm uppercase tracking-widest">
+                    <a onclick="showPage('home')" class="nav-link nav-home active">Home</a>
+                    <a onclick="showPage('about')" class="nav-link nav-about">About Us</a>
+                    <a href="#contact" class="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition shadow-sm">Contact Us</a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b px-4 py-4 space-y-4 shadow-lg">
+            <a onclick="showPage('home')" class="block font-medium py-2">Home</a>
+            <a onclick="showPage('about')" class="block font-medium py-2 border-l-4 border-blue-900 pl-2 bg-blue-50">About Us</a>
+            <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block font-medium py-2 text-blue-900 font-bold uppercase">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HOME VIEW -->
+    <main id="home-view" class="page-view active">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center hero-gradient pt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal active">
+                    <div class="inline-flex items-center space-x-2 bg-blue-50 text-blue-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class=></span>
+                        </span>
+                        <span></span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                        Bridging <span class="text-japan">Japanese</span> Innovation with <span class="text-india">Indian</span> Growth.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">
+                        Carrying forward a legacy of trust, reliability, and cross-border collaboration for over four decades.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="showPage('about')" class="px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold flex items-center justify-center hover:shadow-lg transition group">
+                            Our Full Story
+                            <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition"></i>
+                        </button>
+                        <a href="#expertise" class="px-8 py-4 border border-gray-300 rounded-lg font-semibold flex items-center justify-center hover:bg-gray-50 transition text-center">
+                            View Divisions
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden md:block reveal active" style="transition-delay: 200ms;">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Corporate" class="object-cover w-full h-full opacity-90">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-8 rounded-xl shadow-xl max-w-[200px]">
+                        <div class="text-4xl font-bold text-blue-900 mb-1">40+</div>
+                        <div class="text-xs uppercase tracking-widest text-gray-500 font-bold leading-tight">Years Association</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">A Legacy of Trust & Reliability</h2>
+                <div class="h-1 w-20 bg-blue-900 mx-auto mb-8"></div>
+                <div class="space-y-6 text-lg md:text-xl text-gray-600 leading-relaxed text-center">
+                    <p>
+                        C V International Private Limited works in collaboration with Nomura Trading Company Limited, Tokyo, Japan, facilitating trade and business development in the Indian market. Carrying forward a legacy of trust, reliability and cross-border collaboration.
+                    </p>
+                    <p>
+                        With over four decades of experience in Japanese business relations, we act as a strategic partner enabling seamless trade as a bridge for Japanese expertise and innovation for the Indian market.
+                    </p>
+                    <p>
+                        We focus to build long-term partnerships for enabling seamless trade and delivering high quality Food, Textile, Industrial, Pharmaceutical and Healthcare products.
+                    </p>
+                    <p class="font-medium text-blue-900">
+                        We believe in sustainable growth, structured supply chain management and enduring business relationships.
+                    </p>
+                </div>
+            </div>
+
+        <!-- Brief Expertise Grid -->
+        <section id="expertise" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">Business Segments</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Operating as a strategic trade bridge across diverse high-growth sectors.</p>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="layers"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Textiles</h4>
+                        <p class="text-gray-500 text-sm">High-grade fabrics, Tire Cord, and Poly-Viscose Yarn exports to Japan.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="factory"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Industrial</h4>
+                        <p class="text-gray-500 text-sm">Machinery, Specialty Oils, Clinkers, and Advanced Raw Materials.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="activity"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900 text-wrap">Pharma & Healthcare</h4>
+                        <p class="text-gray-500 text-sm">APIs, Formulations, and 20+ years of expertise in Asian markets.</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="cpu"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Electronics Department</h4>
+                        <p class="text-gray-500 text-sm">Supply advanced materials &amp; equipment to Semiconductor Industries.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="mountain"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Mineral Products</h4>
+                        <p class="text-gray-500 text-sm">Cement, clinker, coal, biomass fuels, mercury and international trading.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="flask-conical"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Chemical Products</h4>
+                        <p class="text-gray-500 text-sm">Deals in natural rubber, latex, elastomers, and specialty chemical materials for industrial, medical, and food applications.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="heart-pulse"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Wellness Products</h4>
+                        <p class="text-gray-500 text-sm">Premium functional ingredients, health food materials, pet care ingredients, for healthier lifestyles worldwide.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="wheat"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Agricultural Products</h4>
+                        <p class="text-gray-500 text-sm">Supply grains, edible oils, spices, and specialty food ingredients to manufacturers around the world.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="shirt"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Uniform Apparel</h4>
+                        <p class="text-gray-500 text-sm">OEM uniforms and private-label apparel with trusted manufacturing across Asia.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="shirt"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Shirts Apparel</h4>
+                        <p class="text-gray-500 text-sm">Premium business shirts, school uniforms, and custom apparel for global markets.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="cog"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Machinery</h4>
+                        <p class="text-gray-500 text-sm">Advance Japanese machinery, automation systems, and engineering solutions worldwide.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 reveal card-hover p-8 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="fish"></i></div>
+                        <h4 class="text-2xl font-bold mb-3 text-blue-900">Meat &amp; Marine</h4>
+                        <p class="text-gray-500 text-sm">Premium meat and seafood sourcing with reliable global supply chain solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ABOUT US VIEW -->
+    <main id="about-view" class="page-view">
+        <!-- Hero Title -->
+        <section class="pt-44 pb-24 bg-blue-900 text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">About Us</h1>
+                <p class="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
+                    Building a strategic bridge between Japanese expertise and the Indian market since 1982.
+                </p>
+            </div>
+            <!-- Abstract background shape -->
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-800/30 -skew-x-12 transform translate-x-20"></div>
+        </section>
+
+        <!-- Our Story / Heritage -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal active">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-900">Our Heritage</h2>
+                        <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                            <p>
+                                Founded in 2002 by Mr. Bhisham Dev Nayyar, who brings over 40 years of extensive experience in Indo-Japan business relations, C V International Pvt. Ltd. was established in 2017  to foster and strengthen strategic trade partnerships between India and Japan.
+With deep industry knowledge and decades of collaboration with Japanese trading enterprises, the company was created to facilitate seamless, long-standing business relationships across Asia.
+                            </p>
+                            <p>
+                                Our operations are guided by integrity, transparency, and a commitment to quality. <strong>C V International Pvt Ltd.</strong> stands as a trusted business consultant and strategic partner, facilitating cross-border coordination, market entry, and supply chain management between India and Japan
+                            </p>
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100 reveal active">
+                        <h4 class="text-xl font-bold mb-6 text-blue-900">Facilitating Excellence In:</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i data-lucide="check" class="text-india-orange mr-3 mt-1"></i> <span>Business coordination between India and Japan</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="text-india-orange mr-3 mt-1"></i> <span>Market development and expansion</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="text-india-orange mr-3 mt-1"></i> <span>Technical collaboration and knowledge exchange</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="text-india-orange mr-3 mt-1"></i> <span>Strategic sourcing and supply chain management</span></li>
+                            <li class="flex items-start"><i data-lucide="check" class="text-india-orange mr-3 mt-1"></i> <span>Long-term partnership building</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Vision -->
+                    <div class="bg-white p-12 rounded-3xl shadow-sm reveal">
+                        <div class="w-14 h-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center mb-8"><i data-lucide="eye" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-bold mb-6 text-blue-900">Our Vision</h3>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            To be a trusted Indo-Japanese business bridge, delivering sustainable value through quality products, technical excellence, and long-term partnerships.
+                        </p>
+                    </div>
+                    <!-- Mission -->
+                    <div class="bg-white p-12 rounded-3xl shadow-sm reveal">
+                        <div class="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-8"><i data-lucide="target" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-bold mb-6 text-blue-900">Our Mission</h3>
+                        <ul class="space-y-4 text-lg text-gray-600">
+                            <li class="flex items-start"><span class="text-red-600 mr-2 mt-1">•</span> To strengthen trade relationships between India, Japan, and Asia</li>
+                            <li class="flex items-start"><span class="text-red-600 mr-2 mt-1">•</span> To provide reliable sourcing and structured supply chain solutions</li>
+                            <li class="flex items-start"><span class="text-red-600 mr-2 mt-1">•</span> To ensure compliance, quality assurance, and customer satisfaction</li>
+                            <li class="flex items-start"><span class="text-red-600 mr-2 mt-1">•</span> To foster technical collaboration across industries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Segments Detailed -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-20 text-blue-900">Our Business Segments</h2>
+                
+                <!-- 1. Textiles -->
+                <div class="mb-32 reveal">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="md:w-1/2">
+                            <div class="inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-900 font-bold text-sm uppercase tracking-widest mb-4">Division 01</div>
+                            <h3 class="text-4xl font-bold mb-6 text-blue-900 underline decoration-india-orange decoration-4 underline-offset-8">Textiles</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                We provide comprehensive sourcing, coordination, and technical collaboration support to both customers and suppliers. We maintain strong export relationships with Japanese customers.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                                <div class="bg-gray-50 p-6 rounded-2xl">
+                                    <h5 class="font-bold text-blue-900 mb-4">Key Products:</h5>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                        <li>• Nylon 6 & 66 Fabrics</li>
+                                        <li>• Tire Cord Fabrics</li>
+                                        <li>• Industrial Textile Materials</li>
+                                        <li>• Poly-Viscose Yarn (Regular exports to Japan)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-6 rounded-2xl">
+                                    <h5 class="font-bold text-blue-900 mb-4">We Ensure:</h5>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                        <li>• Quality Control & Inspection</li>
+                                        <li>• Reliable Procurement</li>
+                                        <li>• Timely Delivery Coordination</li>
+                                        <li>• Long-term Supplier Relations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover aspect-video" alt="Textiles">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Industrial Products -->
+                <div class="mb-32 reveal">
+                    <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
+                        <div class="md:w-1/2">
+                            <div class="inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-900 font-bold text-sm uppercase tracking-widest mb-4">Division 02</div>
+                            <h3 class="text-4xl font-bold mb-6 text-blue-900 underline decoration-japan-red decoration-4 underline-offset-8">Industrial Products</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Our industrial portfolio includes machinery, raw materials, and specialty products designed to meet requirements with efficiency and reliability.
+                            </p>
+                            <div class="bg-gray-50 p-8 rounded-2xl mb-8">
+                                <h5 class="font-bold text-blue-900 mb-4">Product Categories:</h5>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-700">
+                                    <li>• Industrial Machinery</li>
+                                    <li>• Raw Materials</li>
+                                    <li>• Specialty Products</li>
+                                    <li>• Naphthalene Base Oil</li>
+                                    <li>• Clinkers</li>
+                                    <li>• Advanced Materials</li>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="px-4 py-2 bg-blue-50 rounded-lg text-xs font-bold text-blue-900 uppercase">Risk-managed procurement</span>
+                                <span class="px-4 py-2 bg-blue-50 rounded-lg text-xs font-bold text-blue-900 uppercase">Cost-efficient trade execution</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover aspect-video" alt="Industrial">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Pharma -->
+                <div class="reveal">
+                    <div class="flex flex-col md:flex-row gap-12 items-start">
+                        <div class="md:w-1/2">
+                            <div class="inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-900 font-bold text-sm uppercase tracking-widest mb-4">Division 03</div>
+                            <h3 class="text-4xl font-bold mb-6 text-blue-900 underline decoration-india-orange decoration-4 underline-offset-8">Pharmaceuticals & Healthcare</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                We facilitate coordination and supply of pharmaceutical and chemical products, ensuring strict compliance and quality assurance. We have maintained a strong presence in Vietnam for over two decades.
+                            </p>
+                            <div class="bg-red-50 p-8 rounded-2xl mb-8">
+                                <h5 class="font-bold text-red-900 mb-4">Our Capabilities:</h5>
+                                <ul class="space-y-3 text-sm text-gray-800">
+                                    <li class="flex items-center"><i data-lucide="shield-check" class="w-4 h-4 mr-3 text-red-600"></i> Supply of APIs and Finished Formulations</li>
+                                    <li class="flex items-center"><i data-lucide="shield-check" class="w-4 h-4 mr-3 text-red-600"></i> Regulatory compliance & Quality documentation</li>
+                                    <li class="flex items-center"><i data-lucide="shield-check" class="w-4 h-4 mr-3 text-red-600"></i> Market development across Asia (Vietnam focus)</li>
+                                    <li class="flex items-center"><i data-lucide="shield-check" class="w-4 h-4 mr-3 text-red-600"></i> Product traceability & Ethical business practices</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover aspect-video" alt="Pharma">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Presence -->
+        <section class="py-24 bg-gray-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16 text-blue-900">Our Global Presence</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-8 bg-white rounded-3xl text-center shadow-sm reveal">
+                        <div class="text-3xl font-bold text-orange-500 mb-2">India</div>
+                        <p class="text-sm text-gray-500">Core Hub & Representative Bridge</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-3xl text-center shadow-sm reveal" style="transition-delay: 100ms;">
+                        <div class="text-3xl font-bold text-red-600 mb-2">Japan</div>
+                        <p class="text-sm text-gray-500">Long-standing Partnerships</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-3xl text-center shadow-sm reveal" style="transition-delay: 200ms;">
+                        <div class="text-3xl font-bold text-blue-900 mb-2">Vietnam</div>
+                        <p class="text-sm text-gray-500">20+ Years of Direct Operations</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-3xl text-center shadow-sm reveal" style="transition-delay: 300ms;">
+                        <div class="text-3xl font-bold text-gray-700 mb-2">Asia</div>
+                        <p class="text-sm text-gray-500">Active Trade Development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-24 bg-blue-900 text-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-16">Why Choose C V International Pvt Ltd.?</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">40+ Years of Industry Association</span>
+                    </div>
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">Trusted Representation of Nomura’s Legacy</span>
+                    </div>
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">Structured Supply Chain Expertise</span>
+                    </div>
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">Strong Presence in Asian Markets</span>
+                    </div>
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">Long-Term Relationship Focus</span>
+                    </div>
+                    <div class="flex items-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <i data-lucide="check-circle" class="text-orange-400 mr-4 w-6 h-6 flex-shrink-0"></i>
+                        <span class="font-medium">Commitment to Quality & Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CONTACT SECTION (Universal) -->
+    <section id="contact" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal active">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-blue-900">Connect with Us</h2>
+                <p class="text-gray-500 text-lg mb-10"></p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-900 group-hover:bg-blue-900 group-hover:text-white transition">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-medium text-gray-700">support@ntcvi.com & support01@ntcvi.com</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <button class="px-12 py-5 bg-blue-900 text-white rounded-full font-bold hover:bg-blue-800 transition shadow-xl">
+                        Send a Business Inquiry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-blue-900 mr-4 uppercase">C V International Pvt Ltd.</span>
+                    © 2026 C V International Pvt Ltd.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-blue-900">Privacy Policy</a>
+                    <a href="#" class="hover:text-blue-900">Terms of Service</a>
+                    <a href="#" class="hover:text-blue-900">Legal Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Page Routing Logic
+        function showPage(pageId) {
+            // Hide all views
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+            // Remove active classes from nav links
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            
+            // Show selected view
+            const selectedView = document.getElementById(pageId + '-view');
+            if(selectedView) {
+                selectedView.classList.add('active');
+            }
+            
+            // Highlight nav link
+            const navElement = document.querySelector('.nav-' + pageId);
+            if(navElement) {
+                navElement.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Re-run scroll reveal check
+            revealOnScroll();
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.9;
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < triggerBottom) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial run
+        window.onload = () => {
+            revealOnScroll();
+        };
+
+        // Smooth scroll for internal anchors (Expertise, Contact)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    // Only prevent default and scroll if we are on the page containing the ID
+                    // Since it's a SPA style, the IDs are mostly in home-view
+                    if(document.getElementById(href.substring(1))) {
+                        e.preventDefault();
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
